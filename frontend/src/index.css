@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background: #f9fafb;
+}
+
+h1 {
+  margin: 0;
+  padding: 30px;
+  background: rgba(83, 0, 236, 0.96);
+  color: #fff;
+}

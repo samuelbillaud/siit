@@ -1,0 +1,58 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ] // use typescript-eslint parser for .ts|tsx files.
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
+      }
+    },
+    "rules": {
+      "import/prefer-default-export": 0,
+      "import/extensions": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".jsx",
+            ".tsx"
+          ]
+        }
+      ],
+      "react/function-component-definition": [
+        0,
+        {
+          "namedComponents": "function-declaration"
+        }
+      ]
+    }
+}
