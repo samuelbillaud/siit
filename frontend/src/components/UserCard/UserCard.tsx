@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 
 import { User } from '../../types';
 
-import './Card.scss';
+import './UserCard.scss';
 
-type CardProps = Omit<User, 'id' | 'avatar_url' | 'service_ids'> & {
+type UserCardProps = Omit<User, 'id' | 'avatar_url' | 'service_ids'> & {
   avatarUrl: User['avatar_url'];
   servicesIds: User['service_ids'];
 };
-export const Card: FC<CardProps> = ({ name, avatarUrl, position, servicesIds }) => (
+export const UserCard: FC<UserCardProps> = ({ name, avatarUrl, position, servicesIds }) => (
   <div className="card">
     <header>
       <img src={avatarUrl} alt={`${name} avatar`} />

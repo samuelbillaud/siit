@@ -4,8 +4,16 @@ body {
 }
 
 h1 {
+  position: sticky;
+  top: 0;
+
   margin: 0;
   padding: 30px;
   background: rgba(83, 0, 236, 0.96);
   color: #fff;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(4, 4, 63);
 }
