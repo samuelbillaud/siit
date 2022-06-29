@@ -5,44 +5,39 @@
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 -4px 44px -20px rgb(0 0 0 / 8%);
-}
 
-header {
-  a {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    gap: 15px;
+  > header {
+    a {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 15px;
 
-    text-decoration: none;
-    color: #000;
+      text-decoration: none;
+      color: #000;
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
   }
 
-  img {
-    width: 50px;
-  }
-}
+  > main {
+    p {
+      margin: 10px 0;
+    }
 
-.generalInformations {
-  color: rgba(83, 0, 236, 0.96);
-
-  > div:first-child {
-    font-weight: bold;
-  }
-}
-
-p {
-  margin: 10px 0 0;
-}
-
-ul {
-  display: flex;
-
-  margin: 0;
-  padding: 0;
-
-  li {
-    list-style-type: none;
-    margin: 5px 10px;
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      background-color: rgba(83, 0, 236, 0.96);
+      border-radius: 4px;
+      border: none;
+      box-shadow: none;
+      cursor: pointer;
+    }
   }
 }

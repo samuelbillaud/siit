@@ -3,24 +3,41 @@ import { useState } from 'react';
 import { User, Service } from './types';
 
 type UseUsers = () => {
-  fetchUsers: (id?: number) => void;
+  fetchAllUsers: () => void;
+  fetchUsersByServiceId: (id: number) => void;
   isLoading: boolean;
   users: User[];
+  unfilteredUsers: User[];
   error?: Error;
 };
 export const useUsers: UseUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [unfilteredUsers, setUnfilteredUsers] = useState<User[]>([]);
   const [errors, setErrors] = useState<Error>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchUsers = async (id?: number) => {
+  const fetchAllUsers = async () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(
-        `http://localhost:3001/users.json${id ? `?service_id=${id}` : ''}`,
-        { method: 'GET' }
-      );
+      const response = await fetch('http://localhost:3001/users.json', { method: 'GET' });
+      const usersFromResponse = await response.json();
+      setUsers(usersFromResponse);
+      setUnfilteredUsers(usersFromResponse);
+    } catch (error) {
+      setErrors(new Error('There is an error'));
+    }
+
+    setIsLoading(false);
+  };
+
+  const fetchUsersByServiceId = async (id: number) => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(`http://localhost:3001/users.json?service_id=${id}`, {
+        method: 'GET',
+      });
       const usersFromResponse = await response.json();
       setUsers(usersFromResponse);
     } catch (error) {
@@ -30,7 +47,7 @@ export const useUsers: UseUsers = () => {
     setIsLoading(false);
   };
 
-  return { fetchUsers, isLoading, errors, users };
+  return { fetchAllUsers, fetchUsersByServiceId, isLoading, errors, users, unfilteredUsers };
 };
 
 type UseServices = () => {
